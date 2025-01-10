@@ -1,0 +1,21 @@
+<%- include("partials/header.ejs") %>
+
+<form class="formContainer" action="submit" method="post">
+    <h1 class="title">Write Post</h1>
+    <input type="text" name="title" required placeholder="What's the blog about?">
+    <textarea class="content" name="textArea" placeholder="Start Writing" required></textarea>
+    <button type="submit">Post</button>
+</form>
+
+<form class="archive" action="posts" method="delete">
+<%    if(locals.title && locals.content) {  %>
+        <h2> <%= title %> </h2>
+        <p> <%= content %> </p>
+        <button type="submit">Delete</button>
+<%    } else {  %>
+        <h2 style="display: flex; justify-content: center;">-- Nothing to see here --</h2>
+<%    }  %>
+    
+</form>
+
+<%- include("partials/footer.ejs") %>
